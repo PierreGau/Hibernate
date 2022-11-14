@@ -10,15 +10,20 @@ public class main {
 
 	public static void main(String[] args) {
 
-		Player p = Player.getFromDb(1);
-		p.persist();
-		p.setUsername("José");
-		p.Update();
+		Player p1 = Player.getFromDb(1);
+		//p1.setMana(100);
+		//p1.setUsername("José");
+		//p1.update();
 		
-		Player p1 = Player.getFromDb(2);
-		p1.setHp(2500);
-		p1.Update();
+		Player p2 = Player.getFromDb(2);
+		//p2.heal(50);
 		
-		p.AttackPlayer(p1);
+		Player p3 = Player.getFromDb(3);
+		p3.setHp(100);
+		p3.saveOrUpdate();
+		
+		p1.AttackPlayer(p2,50);
+		
+		Player.deleteAll();
 	}
 }
